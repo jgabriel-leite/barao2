@@ -44,7 +44,7 @@ graphics: yes
 library(barao2)
 library(kableExtra)
 
-bloco <- get_bloco(paises)
+bloco <- c("África do Sul", "Alemanha", "Arábia Saudita", "Argentina", "Austrália", "Canadá", "China", "Coreia do Sul", "Estados Unidos", "França", "Índia", "Indonésia", "Itália", "Japão", "México", "Reino Unido", "Rússia", "Turquia", "Áustria", "Bélgica", "Bulgária", "Chipre", "Croácia", "Dinamarca", "Eslováquia", "Eslovênia", "Espanha", "Estônia", "Finlândia", "Grécia", "Hungria", "Irlanda", "Itália", "Letônia", "Lituânia", "Luxemburgo", "Malta", "Polônia", "Portugal", "Romênia", "Suécia", "Países Baixos (Holanda)", "Tcheca, República")
 
 periodo <- "anual"
 
