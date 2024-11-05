@@ -19,7 +19,7 @@ comerciobr_tabela_corrente <- function(pais, periodo) {
     dplyr::mutate(dplyr::across(dplyr::starts_with("var"), scales::label_percent())) %>%
     dplyr::mutate(dplyr::across(dplyr::starts_with("var"), ~ paste0("(", .x, ")"))) %>%
     dplyr::mutate(co_ano = as.character(co_ano)) %>%
-    dplyr::mutate(dplyr::across(where(is.numeric), scales::label_number_si())) %>%
+    dplyr::mutate(dplyr::across(where(is.numeric), scales::label_number(scale_cut = scales::cut_short_scale()))) %>%
     tidyr::unite("Exportacoes", c("Exportacoes","var_exp"), sep = " ") %>%
     tidyr::unite("Importacoes", c("Importacoes", "var_imp"), sep = " ") %>%
     tidyr::unite("Saldo", c("Saldo", "var_saldo"), sep = " ") %>%
@@ -42,4 +42,3 @@ comerciobr_tabela_corrente <- function(pais, periodo) {
   tabela
 
 }
-
