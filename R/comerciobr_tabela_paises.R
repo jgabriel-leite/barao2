@@ -34,7 +34,7 @@ comerciobr_tabela_paises <- function(pais, periodo) {
       dplyr::arrange(dplyr::desc(value), .by_group = T) %>%
       dplyr::arrange(dplyr::desc(co_ano)) %>%
       dplyr::relocate(co_ano, path, no_pais, value, .data$pct_var, .data$pct_prop) %>%
-      dplyr::mutate(dplyr::across(dplyr::starts_with("val"), scales::label_number_si(accuracy = 0.01))) %>%
+      dplyr::mutate(dplyr::across(dplyr::starts_with("val"), scales::label_number(scale_cut = scales::cut_short_scale()))) %>%
       dplyr::mutate(dplyr::across(dplyr::starts_with("pct_") , scales::label_percent(decimal.mark = ",", accuracy = .01)))
 
   df %>%

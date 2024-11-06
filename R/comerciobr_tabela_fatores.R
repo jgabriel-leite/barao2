@@ -26,7 +26,7 @@ comerciobr_tabela_fatores <- function(pais, periodo, fator) {
       dplyr::arrange(dplyr::desc(value), .by_group = T) %>%
       dplyr::mutate(total = sum(value),
                     prop = value/.data$total) %>%
-      dplyr::mutate(dplyr::across(dplyr::starts_with("value"), scales::label_number_si(accuracy = 0.1))) %>%
+      dplyr::mutate(dplyr::across(dplyr::starts_with("value"), scales::label_number(scale_cut = scales::cut_short_scale()))) %>%
       dplyr::mutate(dplyr::across(dplyr::starts_with("prop"), scales::label_percent(accuracy = 0.1, decimal.mark = ","))) %>%
       dplyr::ungroup() %>%
       dplyr::select(-c(.data$total)) %>%
@@ -49,7 +49,7 @@ comerciobr_tabela_fatores <- function(pais, periodo, fator) {
       dplyr::arrange(dplyr::desc(value), .by_group = T) %>%
       dplyr::mutate(total = sum(value),
                     prop = value/.data$total) %>%
-      dplyr::mutate(dplyr::across(dplyr::starts_with("value"), scales::label_number_si(accuracy = 0.1))) %>%
+      dplyr::mutate(dplyr::across(dplyr::starts_with("value"), scales::label_number(scale_cut = scales::cut_short_scale()))) %>%
       dplyr::mutate(dplyr::across(dplyr::starts_with("prop"), scales::label_percent(accuracy = 0.1, decimal.mark = ","))) %>%
       dplyr::ungroup() %>%
       dplyr::select(-c(.data$total)) %>%
@@ -74,7 +74,7 @@ comerciobr_tabela_fatores <- function(pais, periodo, fator) {
       dplyr::arrange(dplyr::desc(value), .by_group = T) %>%
       dplyr::mutate(total = sum(value),
                     prop = value/.data$total) %>%
-      dplyr::mutate(dplyr::across(dplyr::starts_with("value"), scales::label_number_si(accuracy = 0.1))) %>%
+      dplyr::mutate(dplyr::across(dplyr::starts_with("value"), scales::label_number(scale_cut = scales::cut_short_scale()))) %>%
       dplyr::mutate(dplyr::across(dplyr::starts_with("prop"), scales::label_percent(accuracy = 0.1, decimal.mark = ","))) %>%
       dplyr::ungroup() %>%
       dplyr::select(-c(.data$total)) %>%
@@ -99,7 +99,7 @@ comerciobr_tabela_fatores <- function(pais, periodo, fator) {
       dplyr::arrange(dplyr::desc(value), .by_group = T) %>%
       dplyr::mutate(total = sum(value),
                     prop = value/.data$total) %>%
-      dplyr::mutate(dplyr::across(dplyr::starts_with("value"), scales::label_number_si(accuracy = 0.1))) %>%
+      dplyr::mutate(dplyr::across(dplyr::starts_with("value"), scales::label_number(scale_cut = scales::cut_short_scale()))) %>%
       dplyr::mutate(dplyr::across(dplyr::starts_with("prop"), scales::label_percent(accuracy = 0.1, decimal.mark = ","))) %>%
       dplyr::ungroup() %>%
       dplyr::select(-c(.data$total)) %>%

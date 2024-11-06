@@ -44,7 +44,6 @@ graphics: yes
 library(barao2)
 library(kableExtra)
 periodo <- "anual"
-
 knitr::opts_chunk$set(echo = F, message = F, warning = F, error = T)
 ```
 

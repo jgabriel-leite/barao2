@@ -16,7 +16,7 @@ comerciobr_tabelao_produtos <- function(pais, periodo) {
   agregados <- barao2::comerciobr_dados_corrente(pais, periodo) %>%
     dplyr::filter(co_ano > 2015) %>%
     tidyr::pivot_wider(names_from = co_ano, values_from = value) %>%
-    dplyr::mutate(dplyr::across(2:tidyselect::last_col(), scales::label_number_si(accuracy = 0.01)))
+    dplyr::mutate(dplyr::across(2:tidyselect::last_col(), scales::cut_short_scale()))
 
   exp <- comerciobr2::sh4_df %>%
     dplyr::filter(no_pais == pais) %>%
@@ -51,7 +51,7 @@ comerciobr_tabelao_produtos <- function(pais, periodo) {
 
   produtos <- exp %>%
     dplyr::left_join(imp, by = "posicao") %>%
-    dplyr::mutate(dplyr::across(c(2, 6), scales::label_number_si(accuracy = 0.01))) %>%
+    dplyr::mutate(dplyr::across(c(2, 6), scales::cut_short_scale())) %>%
     dplyr::mutate(dplyr::across(5:7, ~ tidyr::replace_na(.x, " "))) %>%
     dplyr::select(.data$posicao, .data$co_sh4.x, .data$no_sh4_por.x, .data$EXP,
                   .data$co_sh4.y, .data$no_sh4_por.y, .data$IMP)

@@ -32,8 +32,8 @@ comerciobr_grafico_concentracao_intraindustria <- function(periodo, pais){
 
 
   df.TESTE$tipo <- ifelse(df.TESTE$tipo == "HH", "Concentração Comercial - Total",df.TESTE$tipo)
-  df.TESTE$tipo <- ifelse(df.TESTE$tipo == "HH_exp", "Concentração Comercial - Exportação",df.TESTE$tipo)
-  df.TESTE$tipo <- ifelse(df.TESTE$tipo == "HH_imp", "Concentração Comercial - Importação",df.TESTE$tipo)
+  df.TESTE$tipo <- ifelse(df.TESTE$tipo == "HH_exp", "Concentração Comercial - Importação",df.TESTE$tipo)
+  df.TESTE$tipo <- ifelse(df.TESTE$tipo == "HH_imp", "Concentração Comercial - Exportação",df.TESTE$tipo)
   df.TESTE$tipo <- ifelse(df.TESTE$tipo == "indiceGL_ponderado", "Comércio Intraindústria",df.TESTE$tipo)
 
   df.TESTE %>%
@@ -41,7 +41,7 @@ comerciobr_grafico_concentracao_intraindustria <- function(periodo, pais){
     ggplot2::ggplot() +
     ggplot2::geom_col(ggplot2::aes(co_ano, value, fill =df.TESTE$tipo),
                       show.legend = F) +
-    ggplot2::labs( x = NULL, y = NULL, subtitle = NULL ,caption = "Ministério da Economia" ,fill="Anos" ) +
+    ggplot2::labs( x = NULL, y = NULL, subtitle = NULL ,caption = "Fonte: MDIC-ComexStat" ,fill="Anos" ) +
     ggplot2::facet_wrap(~factor(df.TESTE$tipo), scales = "fixed") +
     ggplot2::scale_y_continuous(breaks = c(0,0.25,0.50,0.75,1), limits = c(0,1)) +
     ggplot2::scale_x_discrete(breaks = scales::breaks_pretty()) +

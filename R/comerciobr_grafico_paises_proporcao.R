@@ -35,12 +35,12 @@ comerciobr_grafico_paises_proporcao <- function(pais, periodo) {
                         ggplot2::aes(color = no_pais), show.legend = F) +
     ggrepel::geom_label_repel() +
     ggplot2::facet_wrap(~path, scales = "free") +
-    ggplot2::scale_x_continuous(labels = scales::label_percent(accuracy = 0.01)) +
+    ggplot2::scale_x_continuous(labels = scales::label_number(scale_cut = scales::cut_short_scale())) +
     ggplot2::scale_y_reverse(breaks = scales::breaks_pretty(),
                              labels = scales::label_ordinal()) +
     ggplot2::theme_minimal() +
     ggplot2::labs(title = glue::glue("Brasil-{pais}, ranking e propor\u00e7\u00e3o de comercio, {frase}"),
-                  caption = "Fonte: Minist\u00e9rio da Economia",
+                  caption = "Fonte: MDIC-ComexStat",
                   x = NULL, y = NULL)
 
 }

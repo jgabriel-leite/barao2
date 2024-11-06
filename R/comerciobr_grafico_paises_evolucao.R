@@ -59,9 +59,9 @@ comerciobr_grafico_paises_evolucao <- function(pais, periodo) {
     ggthemes::scale_color_tableau() +
     ggplot2::theme_minimal() +
     ggplot2::labs(title = glue::glue("Brasil-{pais}, evolu\u00e7\u00e3o do com\u00e9rcio {frase}"),
-                  caption = "Fonte: Minist\u00e9rio da Economia",
+                  caption = "Fonte: MDIC-ComexStat",
                   x = NULL, y = NULL) +
-    ggplot2::scale_y_continuous(labels = scales::label_number_si()) +
+    ggplot2::scale_y_continuous(labels = scales::label_number(scale_cut = scales::cut_short_scale())) +
     ggplot2::scale_x_continuous(limits = c(ano_min, ano_max),
                                 breaks = scales::breaks_pretty())
 
