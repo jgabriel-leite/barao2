@@ -4,7 +4,7 @@
 #' @param periodo "anual" ou "mensal"
 #'
 #' @export
-
+#nie
 comerciobr_dados_concentracao <- function(pais, periodo, fluxo) {
 
   if(periodo == "anual"){
